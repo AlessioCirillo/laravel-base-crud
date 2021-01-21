@@ -12,7 +12,7 @@
                     <a class="nav-link" href="{{ route('homepage') }}">home</a>
                 </li>
                  <li class="nav-item">
-                    <a class="nav-link" href="#">class</a>
+                    <a class="nav-link" href="{{ route('classes.index') }}">classes</a>
                 </li>
             </ul>
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Classroom;
 
 class ClassController extends Controller
 {
@@ -13,7 +14,11 @@ class ClassController extends Controller
      */
     public function index()
     {
-        //
+        // get data from DB
+        $classrooms = classroom::all();
+        // dd($classrooms);
+
+        return view('classes.index' ,compact('classrooms'));
     }
 
     /**
