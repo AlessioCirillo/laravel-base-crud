@@ -11,8 +11,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('homepage') }}">home</a>
                 </li>
-                 <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('classes.index') }}">classes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('classes.create') }}">Create new classroom</a>
                 </li>
             </ul>
         </div>

@@ -28,7 +28,7 @@ class ClassController extends Controller
      */
     public function create()
     {
-        //
+        return view('classes.create');
     }
 
     /**
@@ -39,7 +39,25 @@ class ClassController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        // dd($data);
+
+        // VALIDAZIONE
+        $request->validate([
+            'name' => 'required|unique:classrooms|max:10',
+            'description' => 'required'
+        ]);
+
+        // SALVARE A DB
+        $classroom = new Classroom();
+        $classroom->name = $data['name'];
+        $classroom->description = $data['description'];
+
+        $save = $classroom->save();
+
+        if($save){
+            return redirect()->route('classes.show', $classroom->id);
+        }
     }
 
     /**
@@ -50,7 +68,7 @@ class ClassController extends Controller
      */
     public function show($id)
     {
-        $classroom = classroom::find($id);
+        $classroom = classroom::find($id); 
         // dd($classroom);
 
         return view('classes.show', compact('classroom'));
